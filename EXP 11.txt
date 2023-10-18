@@ -1,0 +1,10 @@
+Q=float(input("Enter Concentreated load in kN="))
+Sigmaz= float(input("Enter value of vertical normal stress in kN/sq.m="))
+Sigmaz = 10 # RepLace with your actuaL Sigmaz vaLue Q = 1000	# RepLace with your actuaL Q vaLue
+z : 0.1
+zmax = (0.4775 * Q / Sigmaz) ** 0.5
+print("Maximum depth to which Sigmaz = {} kPa exists = zmax = {} m".format(Sigmaz, zmi
+while z <= zmax:
+z = z + 0.1
+r = z * (((((0.4775 * Q) / (Sigmaz * z * z)) ** 0.4) - 1) ** 0.5) 
+print("z = {} m ; r = {} m".format(z, r))

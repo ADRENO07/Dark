@@ -1,0 +1,13 @@
+b=float(input ("Enter Width of channel in m =")) 
+z=float(input ("Enter Side slope of the channel =")) 
+s=float(input ("Enter Bed slope of the channel=")) 
+n=float(input ("Enter Manning's roughness coefficient="))
+#For most economicaL section 
+y=b/(2*(((1+z**2)**0.5)-z)) 
+print("Depth of Flow in m=",y) a=(b+z*y)*y
+print("Wetted area in sqm =",a) 
+r=y/2
+v=1/n*((r)**(2/3))*((s)**(1/2)) 
+print("Velocity of Flow in m/s=",v) 
+q=a*v
+print("Discharge in mA3/s =',q)

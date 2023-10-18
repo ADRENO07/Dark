@@ -1,0 +1,47 @@
+S = float(input("Enter Span of the Truss in m = "))
+H = float(input("Enter Height of the Truss in m = "))
+N = float(input("Enter Number of Panels in the Truss: "))
+ 
+SE = float(input("Enter Span of Each Panel in the Truss in m = ")) 
+PA = float(input("Enter Load at Point A in KN = ")) 
+PB = float(input("Enter Load at Point B in kN = "))
+PC = float(input("Enter Load at Point C in KN	"))
+PD = float(input("Enter Load at Point D in KN	"))
+PE = float(input("Enter Load at Point E in KN	"))
+PF = float(input("Enter Load at Point F in KN	"))
+PG = float(input("Enter Load at Point G in KN	"))
+PH = float(input("Enter Load at Point H in kN	"))
+PI = float(input("Enter Load at Point I in kN	"))
+PJ = float(input("Enter Load at Point J in kN	"))
+PK = float(input("Enter Load at Point K in KN	"))
+PL = float(input("Enter Load at Point L in KN	"))
+
+import math
+ang_A = math.atan(H / (0.5 * SE)) 
+print("Angle A = {} rad".format(ang_A))
+ 
+RL = (((PB + PC) * SE) + ((PD + PE) * 2 * SE) + ((PF + PG) * 3 * SE) + ((PH + PI) * 4 
+print("Reaction at L = {} KN".format(RL))
+RA= (PB + PC) + (PD + PE) + (PF + PG) + (PH + PI) + (PJ + PK)  (RL)
+print("Reaction at A = {} KN".format(RA))
+
+FGI = ((RL * 2 * SE) - ((PJ + PK) * SE)) / ((2 / 3) * H) 
+if FGI < 0:
+print("Force in Member GI = {} kN (C)".format(FGI)) 
+else:
+print("Force in Member GI = {} KN (T)"-format(FGI))	
+
+FFH = ((-RL * 3 * SE) + (PJ * 2 * SE) + (PH	SE)) / ((math.cos(ang_A)) * H)
+if FFH < 0:
+print("Force in Member FH = {} kN (C)".format(FFH)) 
+else:
+print("Force in Member FH = {} KN (T)".format(FFH))
+
+beta = math.atan(SE / ((2 / 3) * H)) 
+print("Beta = {} rad".format(beta))
+
+FGH = (-(PJ * 2 * SE) - (PH * SE)) / ((math cos(beta)) *   3 *SE)
+if FGH < 0:
+print("Force in Member GH = {} kN (C)".format(FGH)) 
+else:
+print("Force in Member GH = {} KN (T)".format(FGH))	
